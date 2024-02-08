@@ -16,20 +16,21 @@ A virtual appliance (NVA - Network Virtual Appliance) deployed in your Azure env
 
 ### Create a Resource Group:
 Create a resource group named "cisco-vnet".
-
-'az group create --name cisco-vnet --location <your_location>'
-
+```bash
+az group create --name cisco-vnet --location <your_location>
+```
 
 ### Create 3 Subnets:
 Create three subnets: 
-usa-zone, 
-jpan-zone, 
-and nva-zone.
+- usa-zone, 
+- jpan-zone, 
+- nva-zone.
 
 Assign IP ranges for each subnet:
-usa-zone: 10.10.0.0/24
-jpan-zone: 10.20.0.0/24
-nva-zone: 10.30.0.0/24
+- usa-zone: 10.10.0.0/24
+- jpan-zone: 10.20.0.0/24
+- nva-zone: 10.30.0.0/24
+
 
 ### Create 3 Virtual Machines and Assign to Subnets:
 Create three virtual machines, one for each subnet, and assign each virtual machine to its corresponding subnet.
@@ -38,11 +39,14 @@ Create three virtual machines, one for each subnet, and assign each virtual mach
 ### Enabel ip forwding in the vna machine 
 "![image](https://github.com/Mouhamed-dridi/Azure_Routing/assets/53900924/522fa715-cd7b-4875-949c-7ecd6c309332)
 "
-In this section, turn on IP forwarding for the operating system of the vm-nva virtual machine to forward network traffic. Use the Azure Bastion service to connect to the vm-nva virtual machine.
-
+In this section, turn on IP forwarding for the operating system of the vm-nva virtual machine to forward network traffic. 
+```bash
 sudo vim /etc/sysctl.conf
+```
 
-# Uncomment the next line to enable packet forwarding for IPv4
+In the Vim editor, remove the # from the line net.ipv4.ip_forward=1
+```bash
+Uncomment the next line to enable packet forwarding for IPv4
 net.ipv4.ip_forward=1
-
+```
 
