@@ -1,0 +1,19 @@
+# Create subnets
+az network vnet create \
+  --resource-group cisco-vnet \
+  --name cisco-vnet \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name usa-zone \
+  --subnet-prefix 10.10.0.0/24
+
+az network vnet subnet create \
+  --resource-group cisco-vnet \
+  --vnet-name cisco-vnet \
+  --name jpan-zone \
+  --address-prefix 10.20.0.0/24
+
+az network vnet subnet create \
+  --resource-group cisco-vnet \
+  --vnet-name cisco-vnet \
+  --name nva-zone \
+  --address-prefix 10.30.0.0/24
