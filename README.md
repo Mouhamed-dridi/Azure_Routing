@@ -50,3 +50,26 @@ Uncomment the next line to enable packet forwarding for IPv4
 net.ipv4.ip_forward=1
 ```
 
+## Create a route table : 
+create a simple routing tabel called highway 59  and create a route called usa_to_jpan
+![image](https://github.com/Mouhamed-dridi/Azure_Routing/assets/53900924/5128be8a-a273-44ed-a304-9b3fa60c893b)
+
+- add name
+- destaion
+- nextope address "ip nva"
+- type virtual appliance
+
+  #### add source route address
+
+- Select Subnets in Settings.
+- Select + Associate.
+- Enter or select the following information in Associate subnet:
+
+## Testing Connectivity Between VMs
+
+To trace the routing of network traffic from `vm-usa` to `vm-jpan`, execute the following command:
+
+```bash
+tracepath 10.20.0.4
+```
+After executing the above command, please reboot the VMs and verify the connectivity
